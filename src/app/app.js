@@ -7,13 +7,20 @@ const paginate = require('handlebars-paginate');
 const flash = require('express-flash')
 const session = require('express-session')
 const csurf = require('csurf')
-const routes = require('./routes/routes')
+const routes = require('../routes/routes')
+
+/* const { sequelize } = require('../database/settings/ConnSequelize')
+
+const LinesProcedules = require('../database/procedules/LinesProcedules') */
+/* 
+const passport = require('passport')
+require('../middlewares/checkCredencials')(passport) */
 
 class App {
     constructor() {
         this.express = express()
         this.session()
-        this.middliwares()
+        this.middleware()
         this.flash()
         this.engine()
         this.routes()
@@ -35,17 +42,15 @@ class App {
             next()
         })
     }
-    middliwares() {
+    middleware() {
         this.express.use(express.urlencoded({ extended: false }))
         this.express.use(express.json())
         this.express.use(cookieParser());
         this.express.use(express.static('./src/public'))
-            /*  this.express.use(csurf()) */
     }
     engine() {
         this.express.set('view engine', '.hbs', )
         this.express.set("views", path.join(__dirname, "/views/"))
-        console.log(path.join(__dirname, "/views/"))
         this.express.engine('.hbs', handlebars({
             defaultLayout: 'main',
             extname: '.hbs',
