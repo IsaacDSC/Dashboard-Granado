@@ -7,43 +7,45 @@
                     <hr>
                 </div>
                 <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <label for="">Data Evento</label>
-                                    <input type="date" class="form-control">
-                                    <label for="">Hora Inicio</label>
-                                    <input type="time" class="form-control">
-                                    <label for="">Hora Fim</label>
-                                    <input type="time" class="form-control">
+                    <form action="/events/create" method="post">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="">Data Evento</label>
+                                        <input type="date" name="dateEvents" class="form-control">
+                                        <label for="">Hora Inicio</label>
+                                        <input type="time" name="hourInit" class="form-control">
+                                        <label for="">Hora Fim</label>
+                                        <input type="time" name="hourEnd" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                        <label for="">Evento</label>
+                                        <input type="text" name="events" class="form-control">
+                                        <label for="">Sub Evento</label>
+                                        <input type="text" name="subEvents" class="form-control">
+                                        <label for="">Equipamento</label>
+                                        <input type="text" name="devices" class="form-control">
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <label for="">Evento</label>
-                                    <input type="text" class="form-control">
-                                    <label for="">Sub Evento</label>
-                                    <input type="text" class="form-control">
-                                    <label for="">Equipamento</label>
-                                    <input type="text" class="form-control">
-                                </div>
+                                <label for="">Anotações</label>
+                                <textarea name="notes" id="" class="form-control" cols="30" rows="10"></textarea>
                             </div>
-                            <label for="">Anotações</label>
-                            <textarea name="" id="" class="form-control" cols="30" rows="10"></textarea>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col">
-                            <button class="btn btn-success col-12">
-                                Salvar
-                            </button>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-success col-12">
+                                    Salvar
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-success col-12">
+                                    Voltar
+                                </button>
+                            </div>
                         </div>
-                        <div class="col">
-                            <button class="btn btn-success col-12">
-                                Voltar
-                            </button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

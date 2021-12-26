@@ -1,4 +1,5 @@
-require('dotenv').config({ path: __dirname + '/../../.env' });
+/* require('dotenv').config({ path: __dirname + '/../../.env' }); */
+require('dotenv').config()
 const express = require("express");
 const handlebars = require("express-handlebars");
 const path = require('path')
@@ -8,6 +9,9 @@ const flash = require('express-flash')
 const session = require('express-session')
 const csurf = require('csurf')
 const routes = require('../routes/routes')
+const { CREATE_TABLE } = require('../config/createDatabase')
+const { AccountProcedules } = require('../database/procedules')
+const { hashPass } = require('../helpers')
 
 /* const { sequelize } = require('../database/settings/ConnSequelize')
 
@@ -24,6 +28,7 @@ class App {
         this.flash()
         this.engine()
         this.routes()
+        this.database()
     }
     session() {
         this.express.use(session({
@@ -107,6 +112,9 @@ class App {
     }
     routes() {
         this.express.use(routes)
+    }
+    async database() {
+        if (process.env.CREATE_DATABASE == 'true') CREATE_TABLE()
     }
 }
 

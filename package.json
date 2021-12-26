@@ -37,6 +37,11 @@
         "passport": "^0.5.2",
         "passport-local": "^1.0.0",
         "prisma": "^3.6.0",
-        "socket.io": "^4.4.0"
+        "sequelize": "^6.12.2",
+        "socket.io": "^4.4.0",
+        "tedious": "^14.0.0"
+    },
+    "devDependencies": {
+        "sequelize-cli": "^6.3.0"
     }
 }
