@@ -1,7 +1,7 @@
 const { conn } = require('../database/conn')
-const { Account, RegisteredEvents, Registered, Events } = require('../database/models')
+const { Account, Lots,  Events } = require('../database/models')
 
-const DATABASES = [Account, RegisteredEvents, Registered, Events]
+const DATABASES = [Account, Lots, Events]
 
 const Run = async () => {
     try {

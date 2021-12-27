@@ -15,14 +15,14 @@ const eventsController = require('../controllers/events.controller')
 //general configure routes
 
 //route dashboard
-routes.get('/', auth, dashboardController.index)
+routes.get('/', dashboardController.index)
 
 
 //route Specification lots
 routes.get('/lots', auth, lotsSpecificationsController.index)
 routes.get('/lot/name', auth, lotsSpecificationsController.foundLote)
-routes.get('/events/create', auth, eventsController.index)
-routes.post('/events/create', auth, eventsController.create)
+routes.get('/events/create',  eventsController.index)
+routes.post('/events/create',  eventsController.create)
 
 //routes accounts
 routes.get('/account/login', accountController.index)

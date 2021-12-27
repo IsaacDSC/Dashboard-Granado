@@ -1,7 +1,9 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const { conn } = require('../conn')
+const {Account} =require('./account')
 
-const Registered = conn.define('registered', {
+
+const Lots = conn.define('lots', {
     item: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -22,35 +24,35 @@ const Registered = conn.define('registered', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    nominalProduct: {
+    nominalProductHour: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    date: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
+    
     initProductionDate: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         allowNull: false,
     },
     endProductionDate: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         allowNull: false,
     },
     quantityPredicted: {
-        type: DataTypes.STRING,
+        type: DataTypes.FLOAT,
         allowNull: false,
     },
     quantityReal: {
-        type: DataTypes.STRING,
+        type: DataTypes.FLOAT,
         allowNull: false,
     },
     userId: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.INTEGER,
+        references: {
+            model: Account,
+            key: 'id'
+        }
     },
 }, {});
 
 //Events.sync({ force: true })
-module.exports = { Registered }
+module.exports = { Lots }
