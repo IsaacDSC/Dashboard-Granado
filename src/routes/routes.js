@@ -8,7 +8,7 @@ const { auth } = require('../middlewares/auth')
 const accountController = require('../controllers/account.controller')
 const dashboardController = require('../controllers/dashboard.controller')
 const lotsSpecificationsController = require('../controllers/lotsSpecifications.Controller')
-const enventsController = require('../controllers/envents.controller')
+const eventsController = require('../controllers/events.controller')
 
 
 //general configure routes
@@ -20,7 +20,8 @@ routes.get('/', dashboardController.index)
 //route Specification lots
 routes.get('/lots', lotsSpecificationsController.index)
 routes.get('/lot/name', lotsSpecificationsController.foundLote)
-routes.get('/events/create', enventsController.index)
+routes.get('/events/create', eventsController.index)
+routes.post('/events/create', eventsController.create)
 
 //routes accounts
 routes.get('/account/login', accountController.index)
