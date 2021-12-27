@@ -1,9 +1,9 @@
 const { conn } = require('../database/conn')
-const { Account } = require('../database/models')
+const { Account, RegisteredEvents, Registered, Events } = require('../database/models')
 
-const DATABASES = [Account]
+const DATABASES = [Account, RegisteredEvents, Registered, Events]
 
-const Run = async() => {
+const Run = async () => {
     try {
         DATABASES.forEach((element) => {
             element.sync({ force: true })

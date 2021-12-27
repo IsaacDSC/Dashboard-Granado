@@ -11,14 +11,12 @@ const csurf = require('csurf')
 const routes = require('../routes/routes')
 const { CREATE_TABLE } = require('../config/createDatabase')
 const { AccountProcedules } = require('../database/procedules')
-const { hashPass } = require('../helpers')
 
-/* const { sequelize } = require('../database/settings/ConnSequelize')
 
-const LinesProcedules = require('../database/procedules/LinesProcedules') */
-/* 
+
 const passport = require('passport')
-require('../middlewares/checkCredencials')(passport) */
+require('../middlewares/checkCredencials')(passport)
+
 
 class App {
     constructor() {
@@ -36,6 +34,8 @@ class App {
             resave: true,
             saveUninitialized: true
         }))
+        this.express.use(passport.initialize())
+        this.express.use(passport.session())
     }
     flash() {
         this.express.use(flash())
@@ -52,6 +52,7 @@ class App {
         this.express.use(express.json())
         this.express.use(cookieParser());
         this.express.use(express.static('./src/public'))
+        
     }
     engine() {
         this.express.set('view engine', '.hbs', )

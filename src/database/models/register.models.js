@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const { conn } = require('../conn')
 
-const Events = conn.define('registered', {
+const Registered = conn.define('registered', {
     item: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -53,4 +53,4 @@ const Events = conn.define('registered', {
 }, {});
 
 //Events.sync({ force: true })
-module.exports = { Events }
+module.exports = { Registered }

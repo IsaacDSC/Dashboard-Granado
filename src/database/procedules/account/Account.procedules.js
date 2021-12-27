@@ -2,6 +2,17 @@ const AccountsService = require('../../../services/usecases/Accounts.service')
 const { Account } = require('../../models')
 
 class AccountProcedules {
+
+    async find(where) {
+        try {
+            const user = await Account.findOne(where)
+            return user
+        } catch (error) {
+            console.log(error)
+            return false
+
+        }
+    }
     async init() {
         try {
             //  const { name, username, password, type, userTypeLogged } = objCreateAccount
