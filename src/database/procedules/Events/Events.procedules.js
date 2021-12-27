@@ -1,12 +1,11 @@
-const { RegisteredEvents } = require('../../models')
+const { Events } = require('../../models')
 
 
 class EventsProcedules {
     async create(data) {
         try {
-            const { dateEvent, initHR, endHR, event, notes, userId_include, userId_delete, status, quantityReal } = data
-            const created = await RegisteredEvents.create({ dateEvent, initHR, endHR, event, notes, userId_include, userId_delete, status, quantityReal })
-            console.log(created)
+            const { dateEvent, initHR, endHR, event,subEvent,equipment, notes, userId_include} = data
+            const created = await Events.create({ dateEvent, initHR, endHR, event,subEvent,equipment, notes, userId_include })
             return created
         } catch (error) {
             console.log(error)

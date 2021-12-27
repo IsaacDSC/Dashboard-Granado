@@ -21,6 +21,7 @@ routes.get('/', dashboardController.index)
 //route Specification lots
 routes.get('/lots', auth, lotsSpecificationsController.index)
 routes.get('/lot/name', auth, lotsSpecificationsController.foundLote)
+routes.post('/lot/create', lotsSpecificationsController.create)
 routes.get('/events/create',  eventsController.index)
 routes.post('/events/create',  eventsController.create)
 
