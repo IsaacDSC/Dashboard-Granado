@@ -12,22 +12,26 @@ const lotsSpecificationsController = require('../controllers/lotsSpecifications.
 const eventsController = require('../controllers/events.controller')
 
 
+
 //general configure routes
 
 //route dashboard
-routes.get('/', dashboardController.index)
+routes.get('/', auth, dashboardController.index)
 
 
 //route Specification lots
 routes.get('/lots', auth, lotsSpecificationsController.index)
 routes.get('/lot/name', auth, lotsSpecificationsController.foundLote)
-routes.post('/lot/create', lotsSpecificationsController.create)
-routes.get('/events/create',  eventsController.index)
-routes.post('/events/create',  eventsController.create)
+routes.get('/lot/create', auth, lotsSpecificationsController.createView)
+routes.post('/lot/create', auth, lotsSpecificationsController.create)
+
+routes.get('/events/create', auth, eventsController.index)
+routes.post('/events/create', auth, eventsController.create)
 
 //routes accounts
 routes.get('/account/login', accountController.index)
 routes.post('/account/login', accountController.account)
+routes.get('/account/logout', accountController.logout)
 
 
 module.exports = routes

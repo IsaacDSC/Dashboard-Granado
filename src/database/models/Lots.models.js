@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const { conn } = require('../conn')
-const {Account} =require('./account')
+const { Account } = require('./account')
 
 
 const Lots = conn.define('lots', {
@@ -28,22 +28,18 @@ const Lots = conn.define('lots', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    
+
     initProductionDate: {
         type: DataTypes.DATE,
-        allowNull: false,
     },
     endProductionDate: {
         type: DataTypes.DATE,
-        allowNull: false,
     },
     quantityPredicted: {
         type: DataTypes.FLOAT,
-        allowNull: false,
     },
     quantityReal: {
         type: DataTypes.FLOAT,
-        allowNull: false,
     },
     userId: {
         type: DataTypes.INTEGER,

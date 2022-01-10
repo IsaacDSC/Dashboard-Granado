@@ -1,11 +1,72 @@
 <div class="main-panel">
-    <div class="container-fluid">
+    <div class="container-fluid mt-2">
         <div class="card">
             <div class="card-body">
                 <div class="container">
                     <h1 class="text-center">Granado | Phebo</h1>
                     <hr>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h2>Criar Lote</h2>
+                <hr>
+                <form action="/lot/create" method="post">
+                    <input type="hidden" name="userId" value="{{id}}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <input type="text" name="item" class="form-control" placeholder="Item">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="desc" class="form-control" placeholder="Descrição">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <input type="text" name="lot" class="form-control" placeholder="Lote">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="module" class="form-control" placeholder="Modulo">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="line" class="form-control" placeholder="Linha">
+                            </div>
+                            <div class="col">
+                                <input type="time" name="nominalProductHour" class="form-control"
+                                    placeholder="nominalProductHour">
+                            </div>
+                            <div class="col">
+                                <input type="date" name="initProductionDate" class="form-control"
+                                    placeholder="initProductionDate">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="quantityPredicted" class="form-control"
+                                    placeholder="Quantidade Prevista">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <h5><strong>User:</strong> IsaacDSC <strong>Email:</strong> isaac8.silva@hotmail.com
+                                </h5>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-success col-12">Enviar</button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -26,6 +87,7 @@
                         </div>
                     </div>
                     <hr>
+                    {{#each lots}}
                     <div class="row">
                         <div class="col">
                             <label for=""></label>
@@ -33,25 +95,52 @@
                         </div>
                         <div class="col">
                             <label for="">Item</label>
-                            <input type="text" class="form-control" disabled readonly>
+                            <input type="text" value="{{this.dataValues.item}}" class="form-control" disabled readonly>
                         </div>
                         <div class="col">
                             <label for="">Descrição</label>
-                            <input type="text" class="form-control" disabled readonly>
+                            <input type="text" value="{{this.dataValues.desc}}" class="form-control" disabled readonly>
                         </div>
                         <div class="col">
                             <label for="">Lote</label>
-                            <input type="text" class="form-control" disabled readonly>
+                            <input type="text" value="{{this.dataValues.lot}}" class="form-control" disabled readonly>
                         </div>
                         <div class="col">
                             <label for="">Qtd</label>
-                            <input type="text" class="form-control" disabled readonly>
+                            <input type="text" value="{{this.dataValues.quantityPredicted}}" class="form-control"
+                                disabled readonly>
                         </div>
                         <div class="col">
                             <label for="">UM</label>
-                            <input type="text" class="form-control" disabled readonly>
+                            <input type="text" value="Kg" class="form-control" disabled readonly>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col mt-4">                          
+                            <button type="submit" class="btn btn-success col-12">Editar</button>
+                        </div>
+                        <div class="col">
+                            <label for="">Item</label>
+                            <input type="text" value="{{this.dataValues.item}}" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="">Descrição</label>
+                            <input type="text" value="{{this.dataValues.desc}}" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="">Lote</label>
+                            <input type="text" value="{{this.dataValues.lot}}" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="">Qtd</label>
+                            <input type="text" value="{{this.dataValues.quantityPredicted}}" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="">UM</label>
+                            <input type="text" value="Kg" class="form-control">
+                        </div>
+                    </div>
+                    {{/each}}
                 </div>
             </div>
         </div>

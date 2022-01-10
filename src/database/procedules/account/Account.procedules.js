@@ -5,8 +5,8 @@ class AccountProcedules {
 
     async find(where) {
         try {
-            const user = await Account.findOne(where)
-            return user
+            if (where) return await Account.findOne(where)
+            return await Account.findAll()
         } catch (error) {
             console.log(error)
             return false

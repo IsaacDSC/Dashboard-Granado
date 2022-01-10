@@ -1,8 +1,14 @@
-const {EventsProcedules} = require('../database/procedules')
+const { EventsProcedules } = require('../database/procedules')
 
 class EventsController {
     async index(req, res) {
-        res.render('events/createEvents')
+        try {
+            const events = await EventsProcedules.find()
+            res.render('events/createEvents', { events })
+        } catch (error) {
+            console.log(error)
+            return res.status(500)
+        }
     }
     async create(req, res) {
         try {

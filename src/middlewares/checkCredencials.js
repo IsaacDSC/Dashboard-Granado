@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 const { Account } = require('../database/models/account')
 const { AccountProcedules } = require('../database/procedules')
 
-module.exports = function (passport) {
+module.exports = function(passport) {
     passport.use(new LocalStrategy({
         usernameField: 'username',
         passwordField: 'password'
